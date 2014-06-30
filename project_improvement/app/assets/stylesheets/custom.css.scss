@@ -1,0 +1,43 @@
+.registration-form .row .item,
+.registration-form .captcha-holder .item{
+	position:absolute;
+	top:23px;
+	right:-105px;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.registration-form .captcha-holder .item{
+	position:static;
+	float:left;
+	padding:21px 0 0;
+}
+.registration-form .row .item li,
+.registration-form .captcha-holder .item li{
+	float:left;
+	margin:0 10px 0 0;
+}
+.registration-form .row .item li a,
+.registration-form .captcha-holder .item li a{
+	text-indent:-9999px;
+	overflow:hidden;
+	display:block;
+}
+.registration-form .row .item .update,
+.registration-form .captcha-holder .item .update{
+	width:17px;
+	height:19px;
+	background:asset-url("sprites-01.png") no-repeat -109px -8px ;
+}
+.registration-form .row .item .sound,
+.registration-form .captcha-holder .item .sound{
+	width:15px;
+	height:20px;
+	background:asset-url("sprites-01.png") no-repeat -15px -7px ;
+}
+.registration-form .row .item .question,
+.registration-form .captcha-holder .item .question{
+	background:asset-url("sprites-01.png") no-repeat -62px -6px ;
+	width:19px;
+	height:20px;
+}

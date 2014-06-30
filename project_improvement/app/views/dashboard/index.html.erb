@@ -1,0 +1,22 @@
+<% if current_user %>
+	<div>
+		<%= label_tag "First Name" %><br/>
+		<%= @user.first_name %>
+	</div>
+	<div>
+		<%= label_tag "Last Name" %><br/>
+		<%= @user.last_name %>
+	</div>
+	<div>
+		<%= label_tag "Email" %><br/>
+		<%= @user.email %>
+	</div>
+	<div>
+		<%= label_tag "Avatar" %><br/>
+		<br/>
+		<% unless @user.avatar.nil? %>
+		  <%= image_tag @user.avatar.url(:thumb) %>
+		<%end%>
+	</div>
+	<%= link_to "Update", edit_dashboard_path(current_user.id) %>
+<%end%>

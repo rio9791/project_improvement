@@ -1,0 +1,39 @@
+<h2>Update Profile</h2>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
+<% if @user.errors.any? %>
+	<% @user.errors.messages.each do |msg| %>
+		<%= msg %>
+	<%end%>
+<%end%>
+	<div>
+		<%= f.label :first_name %><br/>
+		<%= f.text_field :first_name %>
+	</div>
+	<div>
+		<%= f.label :last_name %><br/>
+		<%= f.text_field :last_name %>
+	</div>
+	<div>
+		<%= f.label :email %><br/>
+		<%= f.text_field :email %>
+	</div>
+	<div>
+		<%= f.label :password %><br/>
+		<%= f.password_field :password %>
+	</div>
+	<div>
+		<%= f.label :password_confirmation %><br/>
+		<%= f.password_field :confirmation %>
+	</div>
+	<div>
+		<%= f.label :avatar %><br/>
+		<%= f.file_field :avatar %>
+		<br/>
+		<% unless @user.avatar.nil? %>
+		  <%= image_tag @user.avatar.url(:thumb) %>
+		<%end%>
+	</div>
+	<br/>
+	<%= f.hidden_field :id %>
+	<div><%= f.submit %></div>
+<%end%>

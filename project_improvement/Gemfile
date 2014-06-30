@@ -32,6 +32,17 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
+gem 'omniauth-gplus'
+gem "omniauth-google-oauth2"
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem "paperclip", "~> 4.1"
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -42,4 +53,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
