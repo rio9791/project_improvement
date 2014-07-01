@@ -38,9 +38,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'omniauth-gplus'
-gem "omniauth-google-oauth2"
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem "paperclip", "~> 4.1"
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 
 # Use ActiveModel has_secure_password

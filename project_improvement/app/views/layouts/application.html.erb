@@ -18,7 +18,7 @@ Signed in as <%= current_user.full_name %>. Not you?
 <%= link_to image_tag("linkedin.png"), "/users/auth/linkedin" %>
 <%= link_to image_tag("facebook.png"), "/users/auth/facebook" %>
 <%= link_to image_tag("twitter.png"), "/users/auth/twitter" %>
-<%= link_to image_tag("google_plus.png"), "/users/auth/google_oauth2" %>
+<%= link_to image_tag("google_plus.png"), "/users/auth/gplus" %>
 <% end %>
 <br/>
 <%= flash[:alert] %>
@@ -26,6 +26,6 @@ Signed in as <%= current_user.full_name %>. Not you?
 <%= flash[:notice] %>
 <br/>
 <%= yield %>
-
+<%= yield(:bottom_scripts) %>
 </body>
 </html>
