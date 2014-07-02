@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-1.11.1.min
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $.ajaxSetup({
+    beforeSend: function( xhr ) {
+      var token = $('meta[name="csrf-token"]').attr('content');
+      if (token) xhr.setRequestHeader('X-CSRF-Token', token);
+    }
+  });
+});

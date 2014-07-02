@@ -21,7 +21,9 @@ Signed in as <%= current_user.full_name %>. Not you?
 <%= link_to image_tag("google_plus.png"), "/users/auth/gplus" %>
 <% end %>
 <br/>
+<div class="alert">
 <%= flash[:alert] %>
+</div>
 <br/>
 <%= flash[:notice] %>
 <br/>

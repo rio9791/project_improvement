@@ -1,10 +1,24 @@
 <h2>Update Profile</h2>
-<%= form_for(@user, :html => {:multipart => true}) do |f| %>
-<% if @user.errors.any? %>
-	<% @user.errors.messages.each do |msg| %>
-		<%= msg %>
-	<%end%>
+
+<%= form_for(@user, :html => {:multipart => true, :remote => true}) do |f| %>
+<div class="validation" style="display:none">
+<p>There is an error :</p>
+<% if params[:first_name].blank? %>
+  <p>First name can't be blank!</p>
 <%end%>
+<% if params[:last_name].blank? %>
+  <p>Last name can't be blank!</p>
+<%end%>
+<% if params[:email].blank? %>
+  <p>Email can't be blank!</p>
+<%end%>
+<% if params[:password].blank? %>
+  <p>Password can't be blank!</p>
+<%end%>
+<% if params[:password_confirmation].blank? %>
+  <p>Password confirmation can't be blank!</p>
+<%end%>
+</div>
 	<div>
 		<%= f.label :first_name %><br/>
 		<%= f.text_field :first_name %>
@@ -35,5 +49,7 @@
 	</div>
 	<br/>
 	<%= f.hidden_field :id %>
-	<div><%= f.submit %></div>
+	<div><%= link_to "Update", "javascript:void(0)", class: "submit_button" %></div>
 <%end%>
+
+<%= render "ajax" %>

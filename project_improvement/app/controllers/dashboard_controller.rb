@@ -1,20 +1,22 @@
 class DashboardController < ApplicationController
+	layout 'layouts/application'
+	before_filter :authenticate_user!, :except => [:index]
 
 	def index
-	  @user = current_user
+	  @user = User.find current_user.id
 	end
 
 	def edit
-	  @user = User.find params[:id]
+	  @user = User.find current_user.id
 	end
 
 	def update
-	  @user = User.find params[:user]["id"]
+	  @user = User.find current_user.id
 	  respond_to do |format|
 	  	if @user.update_attributes(user_params)
-	  	  format.html { redirect_to dashboard_index_path, notice: "User profile successfully updated"}
+	  	  format.js { render json: true }
 	  	else
-	  	  format.html { render :edit, notice: "Error"}
+	  	  format.js { render json: false }
 	  	end
 	  end
 	end
@@ -22,6 +24,6 @@ class DashboardController < ApplicationController
 	private
 
 	def user_params
-	  params.require(:user).permit(:avatar, :first_name, :last_name, :email, :password, :password_confirmation)
+	  params.permit(:id, :avatar, :first_name, :last_name, :email, :password, :password_confirmation, :skip_validation => true)
 	end
 end
