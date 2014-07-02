@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  # validates :first_name, :last_name, :presence => true
+  validates :first_name, :last_name, :email, :presence => true
 
 
   def full_name
@@ -86,9 +86,10 @@ class User < ActiveRecord::Base
                             email:auth.info.email,
                             password:Devise.friendly_token[0,20],
                           )
+        user.confirm!
       end
-
     end
+    return user
   end
 
 end
