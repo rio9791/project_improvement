@@ -1,0 +1,19 @@
+<%= content_for :bottom_scripts do %>
+  <script type="text/javascript">
+    $(".submit_button").click(function(){
+      $.ajax({
+      	type: "post",
+      	url: "/users/sign_in",
+      	dataType: "json",
+      	data: {email: $('#user_email').val(), password: $('#user_password').val()},
+      	success:function(response){
+		  if(response){
+		  	window.location.replace("<%= dashboard_index_path %>");
+		  }else{
+		  	$(".validation").show();
+		  }
+		}
+      });
+    });
+  </script>
+<%end%>
