@@ -1,6 +1,6 @@
 <h2>Sign in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="validation"></div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:id => "sign_in_user"}, :format => :json, :remote => true) do |f| %>
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
@@ -11,7 +11,7 @@
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
+  <div><%= link_to "Sign In", "javascript:void(0)", class: "submit_button" %></div>
 <% end %>
-
+<%= render "ajax" %>
 <%= render "users/shared/links" %>

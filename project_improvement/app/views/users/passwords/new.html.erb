@@ -6,7 +6,9 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
+  <div><%#= f.submit "Send me reset password instructions" %>
+  	<%= link_to "Send me reset password instructions",  "javascript:void(0)", :id => "submit_form" %>
+  </div>
 <% end %>
-
+<%= render "ajax" %>
 <%= render "users/shared/links" %>

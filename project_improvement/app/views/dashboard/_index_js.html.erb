@@ -1,0 +1,9 @@
+<%= content_for :bottom_scripts do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+    <% if params[:sucess] == "true" %>
+      alert('aaa');
+    <%end%>
+    });
+  </script>
+<%end%>
