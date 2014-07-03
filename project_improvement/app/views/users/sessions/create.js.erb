@@ -4,6 +4,6 @@
 <% else %>
   $(".validation").html("");
   <% @error_messages.each do |message| %>
-    $("#validation").append("<p><%= message %></p>")
+    $(".validation").append("<p><%= message %></p>")
   <% end %>
 <% end %>
