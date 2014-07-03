@@ -12,18 +12,20 @@ class DashboardController < ApplicationController
 
 	def update
 	  @user = User.find current_user.id
-	  respond_to do |format|
+	  @status = false
 	  	if @user.update_attributes(user_params)
-	  	  format.js { render json: true }
+	  	  @status = true
 	  	else
-	  	  format.js { render json: false }
+	  	  @error_messages = @user.errors.full_messages
 	  	end
+	  respond_to do |format|
+	  	format.js
 	  end
 	end
 
 	private
 
 	def user_params
-	  params.permit(:id, :avatar, :first_name, :last_name, :email, :password, :password_confirmation, :skip_validation => true)
+	  params.require(:user).permit(:id, :avatar, :first_name, :last_name, :email, :password, :password_confirmation)
 	end
 end

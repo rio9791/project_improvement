@@ -1,0 +1,9 @@
+<% if @status %>
+  alert("User profile successfully updated");
+  window.location = "<%= dashboard_index_path %>";
+<% else %>
+  $(".validation").html("");
+  <% @error_messages.each do |message| %>
+    $(".validation").append("<p><%= message %></p>")
+  <% end %>
+<% end %>
